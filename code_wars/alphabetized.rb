@@ -8,22 +8,6 @@
 # Example:
 # alphabetized("The Holy Bible") # "BbeehHilloTy"
 
-# input: string
-# output: string
-# rules:
-  # case-insensitive
-  # only letters
-  # order of appearance
-  # remove whitespace and punctuation
-# algorithm:
-  # compare letters to regex
-    # initialize results array
-    # split string into chars array
-    # iterate over chars (#each)
-      # compare each char against regex
-      # push into results array if matches
-    # join results
-
 ALPHA = ('a'..'z').to_a
 
 def alphabetized(s)
