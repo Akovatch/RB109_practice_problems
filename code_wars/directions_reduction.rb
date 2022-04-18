@@ -51,25 +51,6 @@ def dir_reduc(arr)
   stack
 end
 
-
 p dir_reduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]) == ["WEST"]
 p dir_reduc(["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"]) == ["WEST", "WEST"]
 p dir_reduc(["EAST", "WEST"]) == []
-
-
-# Codewars solution:
-
-# OPPOSITE = {
-#   "NORTH" => "SOUTH",
-#   "SOUTH" => "NORTH",
-#   "EAST"  => "WEST",
-#   "WEST"  => "EAST"
-# }
-
-# def dirReduc(arr)
-#   stack = []
-#   arr.each do |dir|
-#     OPPOSITE[dir] == stack.last ? stack.pop : stack.push(dir)
-#   end
-#   stack
-# end
