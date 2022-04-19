@@ -10,6 +10,43 @@
 # Example:
 # alphabetized("The Holy Bible") # "BbeehHilloTy"
 
+ALPHABET = ('a'..'z').to_a
+
+def alphabetized(string)
+  results = []
+  ALPHABET.each do |letter|
+    string.chars.each { |char| results << char if char.downcase == letter }
+  end
+  results.join
+end
+
+p alphabetized("The Holy Bible") == "BbeehHilloTy"
+
+# because we iterate over the alphabet, all chars will be sorted alphabetically
+# by order of appearance in the string.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ALPHA = ('a'..'z').to_a
 
 # def alphabetized(s)
