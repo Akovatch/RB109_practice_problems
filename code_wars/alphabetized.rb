@@ -10,16 +10,16 @@
 # Example:
 # alphabetized("The Holy Bible") # "BbeehHilloTy"
 
-ALPHA = ('a'..'z').to_a
+# ALPHA = ('a'..'z').to_a
 
-def alphabetized(s)
-  results = []
-  ALPHA.each do |alpha|
-    s.chars.each do |char|
-    results << char if alpha == char.downcase
-    end
-  end
-  results.join
-end
+# def alphabetized(s)
+#   results = []
+#   ALPHA.each do |alpha|
+#     s.chars.each do |char|
+#     results << char if alpha == char.downcase
+#     end
+#   end
+#   results.join
+# end
 
-p alphabetized("The Holy Bible") == "BbeehHilloTy"
+# p alphabetized("The Holy Bible") == "BbeehHilloTy"

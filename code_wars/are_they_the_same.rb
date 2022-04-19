@@ -39,14 +39,6 @@ a or b might be [] (all languages except R, Shell).
 a or b might be nil or null or None or nothing (except in Haskell, Elixir, C++, Rust, R, Shell, PureScript).
 If a or b are nil (or null or None), the problem doesn't make sense so return false.
 
-# input: two arrays
-# output: boolean
-# rules: input can be nil or [] (return false)
-# alg:
-  # transform array1 elements into their squares (#map)
-  # sort both arrays
-  # compare array1 with array2 (==)
-
 =end
 
 def comp(array1, array2)

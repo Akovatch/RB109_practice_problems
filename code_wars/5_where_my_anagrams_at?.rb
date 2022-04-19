@@ -23,12 +23,44 @@
 
 # anagrams('laser', ['lazing', 'lazy',  'lacer']) => []
 
+
+p anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) == ['aabb', 'bbaa']
+p anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']) == ['carer', 'racer']
+p anagrams('laser', ['lazing', 'lazy',  'lacer']) == []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def anagrams(word, words)
   words.select do |str|
     str.chars.sort == word.chars.sort
   end
 end
-
-p anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) == ['aabb', 'bbaa']
-p anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']) == ['carer', 'racer']
-p anagrams('laser', ['lazing', 'lazy',  'lacer']) == []
