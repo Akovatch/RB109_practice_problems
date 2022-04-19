@@ -1,3 +1,5 @@
+# 6 kyu
+
 # Sherlock has to find suspects on his latest case. He will use your method, dear Watson.
 # Suspect in this case is a person which has something not allowed in his/her pockets.
 

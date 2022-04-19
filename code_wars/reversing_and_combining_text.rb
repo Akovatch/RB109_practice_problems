@@ -1,3 +1,5 @@
+# 6 kyu
+
 =begin
 
 Your task is to Reverse and Combine Words.

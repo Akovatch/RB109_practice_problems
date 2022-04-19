@@ -1,3 +1,5 @@
+# 5 kyu
+
 # What is an anagram? Well, two words are anagrams of each other if they
 # both contain the same letters. For example:
 

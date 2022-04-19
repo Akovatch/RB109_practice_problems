@@ -1,3 +1,5 @@
+# 6 kyu
+
 =begin
 
 Given a string of integers, return the number of odd-numbered substrings that can be formed.

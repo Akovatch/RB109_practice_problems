@@ -1,3 +1,5 @@
+# 5 kyu
+
 # In this kata you have to correctly return who is the "survivor",
 # ie: the last element of a Josephus permutation.
 

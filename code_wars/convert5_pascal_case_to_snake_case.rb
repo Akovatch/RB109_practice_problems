@@ -1,3 +1,5 @@
+# 6 kyu
+
 # Complete the method so that it takes a PascalCase string
 # and returns the string in snake_case notation. Lowercase characters
 # can be numbers. If the method gets a number as input,

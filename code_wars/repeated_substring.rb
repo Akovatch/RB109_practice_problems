@@ -1,3 +1,5 @@
+# 6 kyu
+
 =begin
 
 For a given nonempty string str find a minimum substring t and the maximum number k,

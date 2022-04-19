@@ -1,4 +1,5 @@
 =begin
+
 6 kyu
 
 A pangram is a sentence that contains every single letter of the

@@ -1,3 +1,5 @@
+# 6 kyu
+
 # Given an integer n, find the maximal number you can obtain by deleting
 # exactly one digit of the given number.
 

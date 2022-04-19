@@ -1,3 +1,5 @@
+# 5 kyu
+
 # Sum of Pairs
 
 # Given a list of integers and a single sum value, return the first two values

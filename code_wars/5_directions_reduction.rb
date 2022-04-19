@@ -1,3 +1,5 @@
+# 5 kyu
+
 # Once upon a time, on a way through the old wild mountainous west,…
 # … a man was given directions to go from one point to another.
 # The directions were "NORTH", "SOUTH", "WEST", "EAST".

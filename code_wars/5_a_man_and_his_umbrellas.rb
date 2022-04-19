@@ -1,3 +1,5 @@
+# 5 kyu
+
 # A Man and his Umbrellas
 
 # Each morning a man walks to work, and each afternoon he walks back home.
