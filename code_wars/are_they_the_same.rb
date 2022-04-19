@@ -39,21 +39,24 @@ a or b might be [] (all languages except R, Shell).
 a or b might be nil or null or None or nothing (except in Haskell, Elixir, C++, Rust, R, Shell, PureScript).
 If a or b are nil (or null or None), the problem doesn't make sense so return false.
 
-Note for C
-The two arrays have the same size (> 0) given as parameter in function comp.
+# input: two arrays
+# output: boolean
+# rules: input can be nil or [] (return false)
+# alg:
+  # transform array1 elements into their squares (#map)
+  # sort both arrays
+  # compare array1 with array2 (==)
+
 =end
 
-# My original solution involved nested iterations and was so complicated and didn't even work.
-
 def comp(array1, array2)
-  return false if array1 == nil || array2 == nil
-  squared_arr = array1.map { |num1| num1 ** 2 }
-  squared_arr.sort == array2.sort
+  return false if [array1, array2].include?(nil)
+  array1 = array1.map { |num| num ** 2 }
+  array1.sort == array2.sort
 end
 
-p comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 361, 25921, 361, 20736, 361]) # == true
+p comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 361, 25921, 361, 20736, 361]) == true
 p comp([121, 144, 19, 161, 19, 144, 19, 11] , [132, 14641, 20736, 361, 25921, 361, 20736, 361]) == false
 p comp(nil, [1, 2, 3]) == false
 p comp([1, 2], []) == false
 p comp([1, 2], [1, 4, 4]) == false
-
