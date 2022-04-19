@@ -15,11 +15,8 @@ True if it is, False if not. Ignore numbers and punctuation.
 ALPHABET = ('a'..'z').to_a
 
 def pangram?(string)
-  ALPHABET.all? do |letter|
-    string.downcase.include?(letter)
-  end
+  ALPHABET.all? { |letter| string.downcase.include?(letter) }
 end
 
 p pangram?("The quick brown fox jumps over the lazy dog.") == true
 p pangram?("This is not a pangram.") == false
-
