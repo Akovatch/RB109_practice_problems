@@ -26,11 +26,25 @@ Example
 
 =end
 
-def duplicate_count(text)
+# input: string
+# output: integer representing the count of unique case-insensitive chars that occur more than once
+# rules:
+  # case-insensitive
+  # string will only contain letter and digits
+  # input can be an empty string
+# alg:
+  # !!!handling of empty string?
+  # init results array
+  # iterate over chars of downcased string
+    # find the count of each char passed in
+      # if the count is more than 1, push char into results array
+  # get uniq version of results array
+  # return size of results array
+
+def duplicate_count(string)
   results = []
-  text.downcase.chars.each do |char|
-    results << char if text.downcase.count(char) >= 2
-  end
+  string = string.downcase
+  string.chars.each { |char| results << char if string.count(char) > 1 }
   results.uniq.size
 end
 
@@ -42,6 +56,6 @@ p duplicate_count("Indivisibilities") == 2
 
 # Codewars:
 
-def duplicate_count(text)
-  ('a'..'z').count { |c| text.downcase.count(c) > 1 }
-end
+# def duplicate_count(text)
+#   ('a'..'z').count { |c| text.downcase.count(c) > 1 }
+# end
