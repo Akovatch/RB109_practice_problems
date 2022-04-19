@@ -17,18 +17,36 @@ A word is an anagram of another word if they have the same letters (usually in a
 Do not worry about case. All inputs will be lowercase.
 =end
 
+# input: two strings
+# output: an integer (how many letters were removed)
+# rules:
+  # all input will be lowercase
+  # edge cases = can be empty strings
+# alg:
+  # init results array
+  # get original total
+    # get length of each word and add them together, assign to a variable original_size
+  # figure out which letters do both words have in common
+    # iterate through the chars word1
+      # if present in word2,
+        # push char into a results array
+        # substitute letter in word1 with empty space
+      # otherwise, substitute letter in word1 with empty space
+  # multiply the number of elements in results by 2
+  # subtract this from the total number of original_size
+
 def anagram_difference(word1, word2)
-  total_chars = word1.length + word2.length
-  common_chars = 0
+  common_chars = []
+  original_total = word1.size + word2.size
   word1.chars.each do |char|
     if word2.include?(char)
-      common_chars += 1
+      common_chars << char
       word2.sub!(char, '')
     else
       word2.sub!(char, '')
     end
   end
-  total_chars - common_chars * 2
+  original_total - results.size * 2
 end
 
 p anagram_difference('', '') == 0
@@ -41,20 +59,4 @@ p anagram_difference('aab', 'a') == 2
 p anagram_difference('a', 'aab') == 2
 p anagram_difference('codewars', 'hackerrank') == 10
 
-
-# Alt solution:
-
-# def anagram_difference(word1, word2)
-#   ref = word2.dup
-#   same_chars = 0
-#     word1.chars.each do |char|
-#     if ref.include?(char)
-#       ref.sub!(char, '-')
-#       same_chars +=1
-#     else
-#       ref.sub!(char, '-')
-#     end
-#   end
-#   word1.size + word2.size - (same_chars * 2)
-# end
 
