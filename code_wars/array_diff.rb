@@ -1,6 +1,6 @@
 =begin
 
-6 kyu
+6 kyu (very easy for a 6 kyu)
 
 Your goal in this kata is to implement a difference function,
 which subtracts one list from another and returns the result.
