@@ -8,25 +8,14 @@ which subtracts one list from another and returns the result.
 It should remove *all values* from list a, which are present in list b.
 
 array_diff([1,2],[1]) == [2]
-If a value is present in b, all of its occurrences must be removed from the other:
+If a value is present in b, ALL of its occurrences must be removed from the other:
 
 array_diff([1,2],[1]) == [2]
 
 =end
 
-
-# input: two arrays
-# output: one array
-# rules:
-  # arrays can be empty
-  # remove ALL values from arr1 that are present in arr2
-# algorithm:
-  # iterate over array1 (select)
-    # select elements that are not present in arr2
-  # return arr 1
-
-def array_diff(a, b)
-  a.reject { |num| b.include?(num) }
+def array_diff(array1, array2)
+  array1.select { |num| !array2.include?(num) }
 end
 
 p array_diff([1,2], [1]) == [2]
@@ -35,5 +24,8 @@ p array_diff([1,2,2], [2]) == [1]
 p array_diff([1,2,2], []) == [1,2,2]
 p array_diff([], [1,2]) == []
 
+# Codewars:
 
-
+# def array_diff(a, b)
+#   a.reject { |num| b.include?(num) }
+# end
