@@ -13,12 +13,9 @@
 # [160, 3, 1719, 19, 11, 13, -21]
 # Should return: 160 (the only even number)
 
-def find_outlier(integers)
-  even, odd = integers.partition do |num|
-    num.even?
-  end
-  return odd.first if odd.size < even.size
-  even.first
+def find_outlier(array)
+ even, odd = array.partition { |num| num.even? }
+ [even, odd].min_by { |array| array.size }.first
 end
 
 p find_outlier([0, 1, 2]) == 1
