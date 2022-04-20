@@ -13,32 +13,29 @@ If two words score the same, return the word that appears earliest in the origin
 All letters will be lowercase and all inputs will be valid.
 =end
 
-# using two different methods:
+# input: sentence string
+# output: the highest scoring word
+# rules:
+  # all inputs will be valid
+  # only lowercase letters
+  # ***if two words score the same, return that which comes earlier in the string
+# alg:
+   # max the scores (calling the helper method on each word)
+     # split sentence into words, call helper on each word
 
-def high(sentence)
-  sentence.split.max_by { |word| score(word) }
-end
+   # helper method: get score for each word
+    # iterate through each char of each word (#map)
+      # add (# 'a'.ord - 96) to sum
+      # return the sum on the last line
 
-def score(word)
+def get_score(word)
   sum = 0
-  word.chars.each do |char|
-    sum += char.ord - 96
-  end
+  word.chars.each { |char| sum += (char.ord - 96) }
   sum
 end
 
-# using one method and a hash to sort
-
 def high(sentence)
-  results = {}
-  sentence.split.each do |word|
-    sum = 0
-    word.chars.each do |char|
-      sum += char.ord - 96
-    end
-    results[word] = sum
-  end
-  results.max_by { |k, v| v }[0]
+  sentence.split.max_by { |word| get_score(word) }
 end
 
 p high('man i need a taxi up to ubud') == 'taxi'
