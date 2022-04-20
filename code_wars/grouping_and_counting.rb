@@ -19,18 +19,6 @@ Array#length
 
 =end
 
-# input: array of integers
-# output: a hash: unique nums are keys, counts as values
-# rules:
-  # Empty or nil input must return nil instead of a hash.
-  # cannot use #count or #length
-# alg:
-  # handle nil and empty array input: return nil if...
-  # iterate through array - each_with_object (Hash.new(0))
-    # if object includes num as hash key, increment the value
-    # if it does not, add num as key and increment value
-    # return hash
-
 def group_and_count(array)
   return nil if array.nil? || array.empty?
   array.each_with_object(Hash.new(0)) do |num, hash|
