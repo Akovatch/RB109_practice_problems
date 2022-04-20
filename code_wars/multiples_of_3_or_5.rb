@@ -8,10 +8,36 @@
 
 # Note: If the number is a multiple of both 3 and 5, only count it once.
 
-def solution(number)
-  (1...number).select do |num|
-    num % 3 == 0 || num % 5 == 0
-  end.sum
-end
-
 p solution(10) == 23
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def solution(number)
+#   (1...number).select do |num|
+#     num % 3 == 0 || num % 5 == 0
+#   end.sum
+# end
+
