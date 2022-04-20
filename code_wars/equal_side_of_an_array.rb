@@ -40,30 +40,12 @@ Note:
 If you are given an array with multiple answers, return the lowest correct index. (first?)
 =end
 
-# rules:
-  # if multiple, return first
-  # empty [] == 0
-  # if no answer, return -1
-# algorithm:
-  # iterate through array (#each_with_index)
-    # compare arr before index to arr after index
-    # if they are equal, return index
-  # if no answer, return -1
-
-
-def find_even_index(arr)
-  return 0 if arr == []
-  arr.each_with_index do |value, index|
-    return index if (arr[0..index].sum) - value == (arr[index..-1].sum) - value
+def find_even_index(array)
+  array.each_with_index do |num, index|
+    return index if array[0..index].sum - num == array[index..-1].sum - num
   end
   -1
 end
-
-# the key for handling the index 0 and index -1 is the expression in the block.
-# While I originally wrote:
-return index if (arr[0..(index - 1].sum) == (arr[(index + 1)..-1].sum)
-# this didn't handle those indexes correctly, so I had to include them and
-# subtract the value from the slice.
 
 p find_even_index([1,2,3,4,3,2,1]) == 3
 p find_even_index([1,100,50,-51,1,1]) == 1
@@ -76,3 +58,8 @@ p find_even_index([0,0,0,0,0]) == 0
 p find_even_index([-1,-2,-3,-4,-3,-2,-1]) == 3
 p find_even_index(Array(-100..-1)) == -1
 
+# # the key for handling the index 0 and index -1 is the expression in the block.
+# # While I originally wrote:
+# return index if (arr[0..(index - 1].sum) == (arr[(index + 1)..-1].sum)
+# # this didn't handle those indexes correctly, so I had to include them and
+# # subtract the value from the slice.
