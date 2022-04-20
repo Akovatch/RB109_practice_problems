@@ -15,17 +15,6 @@ is the row index, and the second element is the column index of the bomb locatio
 and there will only be one mine in the array.
 =end
 
-# input: nested arrays of equal size
-# output: a 2 element array referencing where the '1' is
-# rules: all arrays are equal size, there will be only one mine
-# alg:
-  # init results array
-  # iterate over the sub_arrays (using a method that provides index #)
-    # if the sub_array includes 1, push index # into the results array
-      # iterate over elements of sub_array
-        # if element equals 1, push its index # into results array
-  # return results array
-
 def mine_location(array)
   results = []
   array.each_with_index do |sub_array, index|
