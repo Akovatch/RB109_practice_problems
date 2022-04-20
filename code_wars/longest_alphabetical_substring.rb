@@ -12,7 +12,7 @@ The input will only consist of lowercase characters and will be at least one let
 
 If there are multiple solutions, return the one that appears first.
 
-=end 
+=end
 
 def longest(string)
   results = ' '
@@ -29,4 +29,20 @@ p longest('asdfaaaabbbbcttavvfffffdf') == 'aaaabbbbctt'
 p longest('asdfbyfgiklag') =='fgikl'
 p longest('z') == 'z'
 p longest('zyba') == 'z'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
