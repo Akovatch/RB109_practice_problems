@@ -1,8 +1,8 @@
 =begin
 
-6 kyu
+6 kyu: unusually difficult for a 6 kyu
 
-Find the longest substring in alphabetical order.
+Find the longest substring that is in alphabetical order.
 
 Example: the longest alphabetical substring in "asdfaaaabbbbcttavvfffffdf" is "aaaabbbbctt".
 
@@ -12,14 +12,14 @@ The input will only consist of lowercase characters and will be at least one let
 
 If there are multiple solutions, return the one that appears first.
 
-=end
+=end 
 
 def longest(string)
   results = ' '
-  string.chars.each do |char|
+  string.chars do |char|
     char >= results[-1] ? results << char : results << ' ' + char
   end
-  results.split.max_by { |substring| substring.length }
+  results.split(' ').max_by { |word| word.length }
 end
 
 p longest('asd') == 'as'
