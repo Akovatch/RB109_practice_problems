@@ -23,17 +23,6 @@ users = {  1  =>  93,
           30  =>   2 }
 =end
 
-# input: hash
-# output: integer representing the key of a pair
-# rules:
-  # If nobody has an exact rank/honor match, return the rank of the user who comes closest.
-  # If there are several users who come closest, return the one with the lowest rank (numeric value).
-  # The hash will not necessarily contain consecutive rank numbers; return the best match from the ranks provided.
-# alg:
-  # sort by hash key (this will ensure that lowest key always is returned first) => nested arrays
-  # sort by the difference between key and value => will return nested arrays?
-  # return the first element of the first pair
-
 def nexus(hash)
   hash.sort.sort_by { |array| (array[0] - array[1]).abs }.first.first
 end
