@@ -1,4 +1,4 @@
-# 6 kyu
+# 6 kyu - the catch is handling the whitespace.
 
 # Introduction
 
@@ -22,20 +22,18 @@
 # uppercase letter is a person standing up.
 
 # Rules
-#  1.  The input string will always be lower case but maybe empty.
+#  1.  The input string will always be lower case but may be empty.
 #  2.  If the character in the string is whitespace then pass over it as if it was an empty seat
 
 #  Example
 # wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
 
-def wave(str)
-  results = []
-  str.chars.each_with_index do |char, index|
-    next if char == ' '
-    results << str[0...index] + char.upcase + str[index + 1 ..-1]
-  end
-  results
-end
-
-p wave("hello") # ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
+# def wave(str)
+#   results = []
+#   str.chars.each_with_index do |char, index|
+#     next if char == ' '
+#     results << str[0...index] + char.upcase + str[index + 1 ..-1]
+#   end
+#   results
+# end
 
