@@ -13,21 +13,6 @@ If two words score the same, return the word that appears earliest in the origin
 All letters will be lowercase and all inputs will be valid.
 =end
 
-# input: sentence string
-# output: the highest scoring word
-# rules:
-  # all inputs will be valid
-  # only lowercase letters
-  # ***if two words score the same, return that which comes earlier in the string
-# alg:
-   # max the scores (calling the helper method on each word)
-     # split sentence into words, call helper on each word
-
-   # helper method: get score for each word
-    # iterate through each char of each word (#map)
-      # add (# 'a'.ord - 96) to sum
-      # return the sum on the last line
-
 def get_score(word)
   sum = 0
   word.chars.each { |char| sum += (char.ord - 96) }
