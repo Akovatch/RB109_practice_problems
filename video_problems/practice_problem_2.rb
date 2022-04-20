@@ -3,19 +3,6 @@
 # numbers in the array. If the array contains fewer than 5
 # elements, the method should return nil.
 
-# input: array
-# output: integer or nil
-# rules:
-  # if array has less than 5 elements, return nil
-# algorithm:
-  # init results array
-  # handle if array has less than 5 elements - expression at the top of method
-  # generate sub_arrays containing 5 consecutive elements each
-    # loop from 0 up to array length - 5
-      # push a slice (from index containing 5 elements) into a results array
-  # convert each sub_array into its sum [12, 23]
-  # return min
-
 def minimum_sum(array)
   return nil if array.size < 5
   results = []
