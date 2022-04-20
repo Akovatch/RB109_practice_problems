@@ -11,18 +11,6 @@
 # "Success"  =>  ")())())"
 # "(( @"     =>  "))(("
 
-# input: string
-# output: string made up of "(" and ")"
-# rules:
-  # ignore capitalization
-  # numbers and special characters are valid
-# alg:
-  # init results array
-  # iterate over chars of string downcased (split into chars array)
-    # if char occurs once (#count), push ( into results
-    # if char occurs more than once push ) into results
-  # join and return results
-
 def duplicate_encode(string)
   string.downcase.chars.map { |char| string.count(char) == 1 ? '(' : ')' }.join
 end
