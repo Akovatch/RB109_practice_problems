@@ -14,13 +14,20 @@
 
 # Note: For 4 or more names, the number in "and 2 others" simply increases.
 
-def likes(names)
-  case names.size
-    when 0 then 'no one likes this'
-    when 1 then "#{names[0]} likes this"
-    when 2 then "#{names[0]} and #{names[1]} like this"
-    when 3 then "#{names[0]}, #{names[1]} and #{names[2]} like this"
-    else "#{names[0]}, #{names[1]} and #{names.size - 2} others like this"
+# input: array
+# output: a string sentence
+# rules:
+  # input can be an empty array
+# algorithm:
+  # case with 5 branches, using string interpolation
+
+def likes(array)
+  case array.size
+  when 0 then "no one likes this"
+  when 1 then "#{array[0]} likes this"
+  when 2 then "#{array[0]} and #{array[1]} like this"
+  when 3 then "#{array[0]}, #{array[1]} and #{array[2]} like this"
+  when 4 then "#{array[0]}, #{array[1]} and #{array.size - 2} others like this"
   end
 end
 

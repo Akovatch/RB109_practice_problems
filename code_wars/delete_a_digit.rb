@@ -10,13 +10,34 @@
 
 # Constraints: 10 ≤ n ≤ 1000000.
 
-def delete_digit(n)
-  results = []
-  str = n.to_s
-  (0..str.length - 1).map do |index|
-    (str[0...index] + str[(index + 1)..-1]).to_i
-  end.max
-end
+# input: integer
+# output: integer (with one digit removed)
+# rules:
+  # Constraints: 10 ≤ n ≤ 1000000
+# alg:
+  # convert integer to string, then to chars array
+  # find the min and assign to variable
+  # find the index number of min
+  # delete element at that index number (#delete_at)
+  # join chars into a string, convert to integer, and return
+
 
 p delete_digit(152) == 52
-p delete_digit(1001) == 101
+p delete_digit(10010) == 101
+
+
+
+
+
+
+
+
+
+
+# def delete_digit(n)
+#   str = n.to_s
+#   (0..str.length - 1).map do |index|
+#     (str[0...index] + str[(index + 1)..-1]).to_i
+#   end.max
+# end
+

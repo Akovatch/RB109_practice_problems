@@ -19,19 +19,18 @@ decipherThis('82yade 115te 103o'); // 'Ready set go'
 
 =end
 
-def decipher_this(string)
-  string.split.map do |word|
-    numbers, letters = word.chars.partition { |char| char.to_i.to_s == char }
-    letters[0], letters[-1] = letters[-1], letters[0]
-    numbers.join.to_i.chr << letters.join
-  end.join(' ')
-end
-
 p decipher_this("65 119esi 111dl 111lw 108dvei 105n 97n 111ka") == "A wise old owl lived in an oak"
 p decipher_this("84eh 109ero 104e 115wa 116eh 108sse 104e 115eokp") == "The more he saw the less he spoke"
 p decipher_this("84eh 108sse 104e 115eokp 116eh 109ero 104e 104dare") == "The less he spoke the more he heard"
 p decipher_this("87yh 99na 119e 110to 97ll 98e 108eki 116tah 119esi 111dl 98dri") == "Why can we not all be like that wise old bird"
 p decipher_this("84kanh 121uo 80roti 102ro 97ll 121ruo 104ple") == "Thank you Piotr for all your help"
 
+# def decipher_this(string)
+#   string.split.map do |word|
+#     numbers, letters = word.chars.partition { |char| char.to_i.to_s == char }
+#     letters[0], letters[-1] = letters[-1], letters[0]
+#     numbers.join.to_i.chr << letters.join
+#   end.join(' ')
+# end
 
-
+# p decipher_this
