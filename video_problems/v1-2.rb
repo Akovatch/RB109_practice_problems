@@ -4,13 +4,26 @@
 # character 3 times in the final answer.
 
 def common_chars(array)
-  chars = array.pop.chars
-
-  chars.select do |char|
-    array.all? { |word| word.sub!(char, '') }
+  results = []
+  reference = array.pop.chars
+  reference.each do |char|
+    results << char if array.all? { |word| word.include?(char) } # push if letter is in all of them
+    array.each { |word| word.sub!(char, '') } # delete char from all words
   end
+  results.sort
 end
 
-p common_chars(['bella', 'label', 'roller']) # == ['e', 'l', 'l']
+p common_chars(['bella', 'label', 'roller']) == ['e', 'l', 'l']
 p common_chars(['cool', 'lock', 'cook']) == ['c', 'o']
 p common_chars(['hello', 'goodbye', 'booya', 'random']) == ['o']
+
+# LS solution:
+
+# def common_chars(array)
+#   chars = array.pop.chars
+
+#   chars.select do |char|
+#     array.all? { |word| word.sub!(char, '') } # <<- tricky
+#   end
+# end
+
