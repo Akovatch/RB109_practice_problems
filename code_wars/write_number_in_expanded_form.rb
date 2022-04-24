@@ -14,37 +14,28 @@ NOTE: All numbers will be whole numbers greater than 0.
 If you liked this kata, check out part 2!!
 =end
 
-# Mathematical solution:
+# input: integer
+# output: string number in 'expanded form'
+# rules:
+  # all input whole numbers greater than 0
+# algorithm:
+  # plan: convert integer to string, reverse, and multiply each digit by its place
+    # init results array
+    # convert integer to string, reverse, convert to chars array
+    # iterate over chars (each_with_index)
+      # results recieves char (converted back to int) multiplied by 10 ** index (if char > 0)
+    # reverse results array
+    # return string using string interpolation
 
 def expanded_form(num)
   results = []
-  (1..(num.to_s.length)).each do |n|
-    remainder = num % (10 ** n)
-    if remainder != 0
-      results << remainder
-      num -= remainder
-    end
+  num.to_s.reverse.chars.each_with_index do |char, index|
+    results << char.to_i * (10 ** index) if char.to_i * (10 ** index) > 0
   end
-  results.reverse.join(' + ')
+  results.reverse!.join(' + ')
 end
 
 p expanded_form(12) == '10 + 2'
 p expanded_form(42) == '40 + 2'
 p expanded_form(70304) == '70000 + 300 + 4'
-
-# Solution using string methods:
-
-def expanded_form(num)
-  results = []
-  num.to_s.chars.reverse.each_with_index do |value, index|
-    next if value.to_i == 0
-    results << value.to_i * (10 ** index)
-  end
-  results.reverse.join(' + ')
-end
-
-p expanded_form(12) == '10 + 2'
-p expanded_form(42) == '40 + 2'
-p expanded_form(70304) == '70000 + 300 + 4'
-
 
