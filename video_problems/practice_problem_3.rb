@@ -3,11 +3,24 @@
 # in every third word converted to uppercase. Other characters
 # should remain the same.
 
+# input: string sentence
+# output: string in weird case
+# rules:
+  # all other chars should remain the same
+  # assuming valid input (no nil or empty string)
+# algorithm:
+  # split sentence into words
+  # iterate over words (each_with_index and map)
+    # if the index + 1 is divisible by 3 then:
+      # iterate over chars of the word (each_with_index and map), upcasing any char with an odd index
+      # join chars array
+
 def to_weird_case(sentence)
-  words = sentence.split
-  words.map do |word|
-    if (words.index(word) + 1) % 3 == 0
-      word.chars.each_with_index.map { |char, index| index.even? ? char : char.upcase }.join
+  sentence.split.each_with_index.map do |word, index1|
+    if (index1 + 1) % 3 == 0
+      word.chars.each_with_index.map do |char, index2|
+        index2.odd? ? char.upcase : char
+      end.join
     else
       word
     end
