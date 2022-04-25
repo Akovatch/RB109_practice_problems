@@ -13,20 +13,17 @@
 # 'zzbaabcd' => 4
 # '' => 0
 
-def longest_palindrome(str)
-  palindromes = []
-  substrings = generate_substrings(str)
-  substrings.each do |substring|
-    palindromes << substring if substring.reverse == substring
-  end
-  palindromes.max_by {|palindrome| palindrome.length }.length
+def longest_palindrome(string)
+  palindromes = generate_palindromes(string)
+  palindromes.max_by { |palindrome| palindrome.length }.length
 end
 
-def generate_substrings(str)
+def generate_palindromes(string)
   results = []
-  0.upto(str.length - 1) do |index1|
-    index1.upto(str.length - 1) do |index2|
-      results << str[index1..index2]
+  (0...string.length).each do |index1|
+    (index1...string.length).each do |index2|
+      slice = string[index1..index2]
+      results << slice if slice.reverse == slice
     end
   end
   results
