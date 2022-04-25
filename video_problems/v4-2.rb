@@ -10,9 +10,9 @@
 # Only lower case letters will be used (a-z). No punctuation or digits will
 # be included.
 
-def scramble(str1, str2)
-  str2.chars.all? do |char|
-   p str1.sub!(char, '') if str1.include?(char)
+def scramble(string1, string2)
+  string2.chars.all? do |char|
+    string1.count(char) >= string2.count(char)
   end
 end
 
@@ -23,13 +23,10 @@ p scramble('katas','steak') == false
 p scramble('scriptjava','javascript') == true
 p scramble('scriptingjava','javascript') == true
 
-# LS solution - similar, but instead of sub! it uses count...
+# alt solution using sub!
 
-def scramble(str1, str2)
-  str1_chars = str1.chars
-  str2_chars = str2.chars
-  str2_chars.each do |char2|
-    return false if str2.count(char2) > str1.count(char2)
-  end
-  true
-end
+# def scramble(str1, str2)
+#   str2.chars.all? do |char|
+#    p str1.sub!(char, '') if str1.include?(char)
+#   end
+# end
