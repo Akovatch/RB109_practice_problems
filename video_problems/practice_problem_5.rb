@@ -6,12 +6,7 @@
 # lowercase version to be the same.
 
 def least_common_char(string)
-  results = {}
-  string.downcase.chars do |char|
-    count = string.downcase.count(char)
-    results.key?(count) ? results[count] << char : results[count] = [char]
-  end
-  results.min[1][0]
+  string.downcase.chars.min_by { |char| string.downcase.count(char) }
 end
 
 p least_common_char("Hello World") == "h"
@@ -20,4 +15,39 @@ p least_common_char("Mississippi") == "m"
 p least_common_char("Happy birthday!") == ' '
 p least_common_char("aaaaaAAAA") == 'a'
 
-# The tests above should print "true".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def least_common_char(string)
+  results = {}
+  string.downcase.chars do |char|
+    count = string.downcase.count(char)
+    results.key?(count) ? results[count] << char : results[count] = [char]
+  end
+  results.min[1][0]
+end
