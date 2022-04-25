@@ -19,10 +19,10 @@
 # in this problem). Index - is the place where the left side and right
 # side are equal.
 
-def find_even_index(arr)
-  return 0 if arr == []
-  arr.each_with_index do |value, index|
-    return index if (arr[0..(index)].sum) - value == (arr[(index)..-1].sum) - value
+def find_even_index(array)
+  return 0 if array.empty?
+  array.each_with_index do |num, index|
+    return index if array[0..index].sum == array[index..-1].sum
   end
   -1
 end
