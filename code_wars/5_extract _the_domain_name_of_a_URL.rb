@@ -1,6 +1,6 @@
 =begin
 
-5 kyu
+5 kyu - next time try with gsub and split
 
 Write a function that when given a URL as a string, parses out just the
 domain name and returns it as a string. For example:
@@ -31,4 +31,13 @@ p domain_name("http://google.com") == "google"
 p domain_name("http://google.co.jp") == "google"
 p domain_name("www.xakep.ru") == "xakep"
 p domain_name("https://youtube.com") == "youtube"
+
+# Codewars solution:
+
+def domain_name(url)
+  url.gsub!('http://', '')
+  url.gsub!('https://', '')
+  url.gsub!('www.', '')
+  url.split(".")[0]
+end
 
