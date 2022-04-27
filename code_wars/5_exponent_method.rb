@@ -55,3 +55,15 @@ p power(3, 2) == 9
 p power(-5, 3) == -125
 p power(-4, 2) == 16
 p power(8, -2) == nil
+
+# original solution:
+
+def power(num1, num2)
+  return 1 if num2 == 0
+  return nil if num2 < 0
+  multiplier = num1
+  1.upto(num2 - 1) do
+    num1 *= multiplier
+  end
+  num1
+end
