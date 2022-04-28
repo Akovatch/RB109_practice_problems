@@ -13,12 +13,24 @@
 # If a string contains all repeating characters, it should return an empty
 #  string ("") or None -- see sample tests.
 
-def first_non_repeating_letter(s)
-  results = ''
-  s.chars.each do |char|
-    results << char if s.downcase.count(char.downcase) == 1
+# input: string
+# output: char
+# rules:
+  # should return first letter that doesn't repeat
+  # return correct case of initial letter if lower- and upper- case versions appear (considered the same)
+  # If a string contains all repeating characters, it should return an empty string ("")
+
+# algorithm:
+  # iterate over chars of string - for each char
+    # get count of that char (lowercase) in string
+    # if count is 1, return char
+    # ''
+
+def first_non_repeating_letter(string)
+  string.chars.each do |char|
+    return char if string.downcase.count(char.downcase) == 1
   end
-  results == '' ? '' : results[0]
+  ''
 end
 
 p first_non_repeating_letter('a') == 'a'
