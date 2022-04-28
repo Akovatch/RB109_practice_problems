@@ -24,13 +24,13 @@
 # using an array/list to compute the number of the survivor may be too slow;
 # you may assume that both n and k will always be >=1.
 
-def josephus_survivor(n,k)
-  arr = (1..n).to_a
-  return n if arr.size == 1
-  (arr.size - 1).times do
-    arr.rotate!(k - 1).shift
+def josephus_survivor(n, k) # only works if you use destructive form of #rotate
+  people = (1..n).to_a
+  return n if people.size == 1 # helps with performance
+  loop do
+    people.rotate!(k - 1).shift
+    return people.first if people.size == 1
   end
-  arr.first
 end
 
 p josephus_survivor(7, 3) == 4
@@ -39,12 +39,19 @@ p josephus_survivor(1, 300) == 1
 p josephus_survivor(14, 2) == 13
 p josephus_survivor(100, 1) == 100
 
-# Codewars solution:
 
-def josephus_survivor(n, k)
-  survivors = (1..n).to_a
-  until survivors.length == 1
-    survivors.rotate!(k-1).shift
-  end
-  survivors[0]
-end
+# p josephus_survivor(7, 3) == 4
+# p josephus_survivor(11, 19) == 10
+# p josephus_survivor(1, 300) == 1
+# p josephus_survivor(14, 2) == 13
+# p josephus_survivor(100, 1) == 100
+
+# # Codewars solution:
+
+# def josephus_survivor(n, k)
+#   survivors = (1..n).to_a
+#   until survivors.length == 1
+#     survivors.rotate!(k-1).shift
+#   end
+#   survivors[0]
+# end
