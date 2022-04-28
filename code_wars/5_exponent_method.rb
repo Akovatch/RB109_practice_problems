@@ -14,7 +14,6 @@ Note: The ** operator has been disabled.
   # Return nil if the second argument is negative.
   # The ** operator is disabled.
 
-
 Examples:
 
 p power(2, 3) == 8
