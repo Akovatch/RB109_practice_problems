@@ -5,17 +5,6 @@
 # provided array in compiled languages is empty), return 1. The least common multiple is the lowest
 # number that is evenly divisible by all arguments.
 
-# input: an array of integers
-# output: integer
-# rules:
-  # all arguments are non-negative integers
-  # return 1 if no arguments
-# algorithm:
-  # handle no arguments (return 1)
-  # iterate up from first num in the array (or the highest???)
-    # check if num is divisible by all arguments (#all?)
-      # return number if it is
-
 def lcm(array)
   return 1 if array.empty?
   return 0 if array.include?(0)
