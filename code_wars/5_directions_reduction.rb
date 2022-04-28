@@ -44,11 +44,12 @@
 # result path is itself : ["NORTH", "WEST", "SOUTH", "EAST"].
 # if you want to translate, please ask before translating.
 
+OPPOSITES = {'NORTH' => 'SOUTH', 'SOUTH' => 'NORTH', 'EAST' => 'WEST', 'WEST' => 'EAST'}
+
 def dir_reduc(arr)
   stack = []
-  opposites = {"NORTH" => "SOUTH", "SOUTH" => "NORTH", "EAST" => "WEST", "WEST" => "EAST"}
   arr.each do |dir|
-    opposites[dir] == stack.last ? stack.pop : stack << dir
+    OPPOSITES[dir] == stack.last ? stack.pop : stack << dir
   end
   stack
 end
