@@ -26,15 +26,42 @@
 # In some languages, it is possible to mutate the input to the function. This is something that you
 # should never do. If you mutate the input, you will not be able to pass all the tests.
 
-def score( dice )
-  [ dice.count(1) / 3 * 1000,
-    dice.count(6) / 3 * 600,
-    dice.count(5) / 3 * 500,
-    dice.count(4) / 3 * 400,
-    dice.count(3) / 3 * 300,
-    dice.count(2) / 3 * 200,
-    dice.count(1) % 3 * 100,
-    dice.count(5) % 3 * 50 ].reduce(:+)
+# input: array of integers
+# output: an integer (score)
+# rules:
+  # don't mutate input array
+  # triples will be satisfied, the singles will be scored after
+# algorithm: iterate over unique array, get count for each num, use case to score
+  # init score variable
+  # create uniq array - uniq_array
+  # iterate over numbers in uniq array - for each number
+    # score using case
+      # get count - assign to count varaible
+      # see if triples are satisfied - subtract 3 from count variable
+      # see if singles are satisfied (1, 5)
+
+def score(array)
+  score = 0
+  uniq_array = array.uniq
+  uniq_array.each do |num|
+    count = array.count(num)
+    case
+    when num == 1 && count >= 3
+      score += 1000
+      count -= 3
+    when num >= 2 && num <= 6 && count >= 3
+      score += num * 100
+      count -= 3
+    end
+
+    case
+    when num == 1 && count > 0
+      score += 100 * count
+    when num == 5 && count > 0
+      score += 50 * count
+    end
+  end
+  score
 end
 
 p score([2, 3, 4, 6, 2]) == 0
@@ -42,3 +69,17 @@ p score([2, 2, 2, 3, 3]) == 200
 p score([2, 4, 4, 5, 4]) == 450
 p score([5, 1, 3, 4, 1]) == 250
 p score([1, 1, 1, 3, 1]) ==  1100
+
+# Codewars solution:
+
+# def score( dice )
+#   [ dice.count(1) / 3 * 1000,
+#     dice.count(6) / 3 * 600,
+#     dice.count(5) / 3 * 500,
+#     dice.count(4) / 3 * 400,
+#     dice.count(3) / 3 * 300,
+#     dice.count(2) / 3 * 200,
+#     dice.count(1) % 3 * 100,
+#     dice.count(5) % 3 * 50 ].reduce(:+)
+# end
+
