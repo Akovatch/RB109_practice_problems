@@ -28,14 +28,6 @@ p power(-5, 3) == -125
 p power(-4, 2) == 16
 p power(8, -2) == nil
 
-# algorithm:
-  # if num2 if zero, then return 1
-  # return nil if the num2 is negative
-  # start a loop, from 1 upto the power minus 1
-    # multiply a num1 by num1
-    # ? handling negatives correctly? (-5, 3)
-=end
-
 def power(base, exp)
   return nil if exp < 0
   result = 1
