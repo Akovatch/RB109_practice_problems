@@ -5,16 +5,22 @@
 # provided array in compiled languages is empty), return 1. The least common multiple is the lowest
 # number that is evenly divisible by all arguments.
 
-def lcm(arr)
-  return 0 if arr.include?(0)
-  return 1 if arr.empty?
-  return arr.first if arr.size == 1
-  if arr.size >= 2
-    arr.sort!
-    max_mult = arr[-1] * arr[-2]
-    (arr.last).upto(max_mult) do |num|
-      return num if arr.all? { |element| num % element == 0 }
-    end
+# input: an array of integers
+# output: integer
+# rules:
+  # all arguments are non-negative integers
+  # return 1 if no arguments
+# algorithm:
+  # handle no arguments (return 1)
+  # iterate up from first num in the array (or the highest???)
+    # check if num is divisible by all arguments (#all?)
+      # return number if it is
+
+def lcm(array)
+  return 1 if array.empty?
+  return 0 if array.include?(0)
+  array.first.upto(array.reduce(:*)) do |num|
+    return num if array.all? { |ele| num % ele == 0 }
   end
 end
 
