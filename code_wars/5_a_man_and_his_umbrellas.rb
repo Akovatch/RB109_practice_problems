@@ -21,10 +21,10 @@
 # "clear",
 # "sunny",
 # "cloudy",
-# "rainy",
+# ***"rainy",
 # "overcast",
 # "windy"
-# "thunderstorms".
+# ***"thunderstorms".
 # e.g. for three days, 6 values:
 
 # weather = ["rainy", "cloudy", "sunny", "sunny", "cloudy", "thunderstorms"]
@@ -47,33 +47,32 @@
 
 # Because he only needs 1 umbrella which he takes on every journey.
 
-# intput: array of strings
-# output: an integer
-# rules: a bunch
+# input: array of strings (weather)
+# output: an integer representing # of umbrellas
+# rules:
+  # only takes an umbrella if its raining
 # algorithm:
-  # rainy event array constant
-  # umbrellas variable
-  # convert into nested arrays of two
-  # reverse the order
-  # if first array contains a rain event, add 1 to variable
-  # remove first array
-  # iterate over the rest
-    # if both in 2nd are a rain event (all?) do not add anything
-    # if only one, add 1
-  # return variable
+  # [0, 0]
+  # iterate over words of array
+    # if even indexed element is rainy, then increment work var, unless previous was rainy or home == 1
+    # if odd indexed element is rainy, increment home var, unless previous was rainy or work == 1
+    # get total of variables
 
-RAIN = ["rainy", "thunderstorms"]
+RAINY = ["rainy", "thunderstorms"]
 
 def min_umbrellas(weather)
-  umbrellas = 0
-  weather = weather.each_slice(2).to_a.reverse
-  umbrellas += 1 if RAIN.include?(weather[0][0]) || RAIN.include?(weather[0][1])
-  weather.shift
-  weather.each do |arr|
-    umbrellas += 1 if RAIN.include?(weather[0][0]) && !RAIN.include?(weather[0][1])
-    umbrellas += 1 if !RAIN.include?(weather[0][0]) && RAIN.include?(weather[0][1])
+  home = 0
+  work = 0
+  previous = ''
+  weather.each_with_index do |condition, index|
+    if index.even? && RAINY.include?(condition) && !RAINY.include?(previous) && home != 1
+      work += 1
+    elsif index.odd? && RAINY.include?(condition) && !RAINY.include?(previous) && work != 1
+      home += 1
+    end
+    previous = condition
   end
-  umbrellas
+  work + home
 end
 
 p min_umbrellas(["rainy", "clear", "rainy", "cloudy"]) == 2
@@ -81,3 +80,5 @@ p min_umbrellas(["sunny", "windy", "sunny", "clear"]) == 0
 p min_umbrellas(["cloudy"]) == 0
 p min_umbrellas(["rainy", "rainy", "rainy", "rainy"]) == 1
 p min_umbrellas(["overcast", "rainy", "clear", "thunderstorms"]) == 2
+
+
