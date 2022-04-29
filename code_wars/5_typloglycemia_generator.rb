@@ -1,6 +1,6 @@
 =begin
 
-5 kyu
+5 kyu - very hard for a level 5 kyu
 
 Background
 There is a message that is circulating via public media that claims a
@@ -28,38 +28,25 @@ Assumptions
 3) special characters do not take the position of the non special characters, for example: -dcba -> -dbca
 4) for this kata puctuation is limited to 4 characters: hyphen(-), apostrophe('), comma(,) and period(.)
 5) ignore capitalisation
-
+6) remove unsanctioned punc
 for reference: http://en.wikipedia.org/wiki/Typoglycemia
 =end
 
-PUNCTUATION = ["-", "'", ".", ","]
+PUNCTUATION = ['-', "'", ',', '.']
 
 def scramble_words(string)
-  results = []
-  string.split(' ').each do |word|
-    scrambled_word = ''
-    punctuation_index = []
+  return string if string.length < 3
+  string.split(' ').map do |word|
+    results = {}
+    new_word = ''
     word.chars.each_with_index do |char, index|
-      if PUNCTUATION.include?(char)
-        punctuation_index = [char, index]
-        word.sub!(char, "")
-      end
+      results[index] = char if PUNCTUATION.include?(char)
+      new_word << char if char =~ /[a-zA-Z]/
     end
-    if punctuation_index.empty?
-      results << scrambled_word = scrambler(word)
-    else
-      scrambled_word = scrambler(word)
-      results << scrambled_word.insert(punctuation_index[1], punctuation_index[0])
-    end
-  end
-  results.join(' ')
-end
-
-def scrambler(word)
-  word = word.gsub(/[^A-Za-z]/, "")
-  return word if word.size == 1
-  sorted = word[1..-2].chars.sort
-  word[0] + sorted.join + word[-1]
+    new_word = (new_word[0] + new_word[1..-2].chars.sort.join + new_word[-1])
+    results.each { |key, value| new_word = new_word.insert(key, value) } if !results.empty?
+    new_word
+  end.join(' ')
 end
 
 p scramble_words('professionals') == 'paefilnoorsss'
@@ -72,4 +59,56 @@ p scramble_words("shan't") == "sahn't"
 p scramble_words('-dcba') == '-dbca'
 p scramble_words('dcba.') == 'dbca.'
 p scramble_words("you've gotta #dance like there's nobody watching, love like you'll never be hurt, sing like there's nobody listening, and live like it's heaven on earth.") == "you've gotta dacne like teehr's nbdooy wachintg, love like ylo'ul neevr be hrut, sing like teehr's nbdooy leiinnstg, and live like it's haeevn on earth."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# PUNCTUATION = ["-", "'", ".", ","]
+
+# def scramble_words(string)
+#   results = []
+#   string.split(' ').each do |word|
+#     scrambled_word = ''
+#     punctuation_index = []
+#     word.chars.each_with_index do |char, index|
+#       if PUNCTUATION.include?(char)
+#         punctuation_index = [char, index]
+#         word.sub!(char, "")
+#       end
+#     end
+#     if punctuation_index.empty?
+#       results << scrambled_word = scrambler(word)
+#     else
+#       scrambled_word = scrambler(word)
+#       results << scrambled_word.insert(punctuation_index[1], punctuation_index[0])
+#     end
+#   end
+#   results.join(' ')
+# end
+
+# def scrambler(word)
+#   word = word.gsub(/[^A-Za-z]/, "")
+#   return word if word.size == 1
+#   sorted = word[1..-2].chars.sort
+#   word[0] + sorted.join + word[-1]
+# end
+
 
