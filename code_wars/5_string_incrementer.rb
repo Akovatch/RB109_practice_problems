@@ -15,13 +15,22 @@
 # foo099 -> foo100
 
 # Attention: If the number has leading zeros the amount of digits should be considered.
-  # note: if you call #next on a STRING number with leading 0s the 0s are maintained
+
+# input: string
+# output: string
+# rules:
+  # If the string already ends with a number, the number should be incremented by 1.
+  # If the string does not end with a number, the number 1 should be appended to the new string.
+  # If the number has leading zeros the amount of digits should be considered.
+# algorithm:
+  # partition letters from string digits (assign to variables, letters and numbers, representing arrays)
+    # join numbers and get next number
+    # join letters, add numbers results
+      # if numbers is empty, add '1' to the end of letters (joined)
 
 def increment_string(string)
-  return '1' if string == ''
-  return string + '1' if string.chars.last =~ /[a-z]/
-  letters, numbers = string.chars.partition { |char| char =~ /[a-z]/ }
-  letters.join + numbers.join.next
+  letters, numbers = string.chars.partition { |char| char =~ /[a-zA-Z]/ }
+  numbers.empty? ? letters.join + '1' : letters.join + numbers.join.next
 end
 
 p increment_string("foo") == "foo1"
