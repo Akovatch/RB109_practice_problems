@@ -16,22 +16,6 @@ Examples:
 
 =end
 
-# input: two arrays of equal size
-# output: a single integer
-# rules:
-  # arrays will be equal
-# algorithm: subtract values from each other, get abs val, square, sum all values, then divide by num of elements
-  # init results array
-  # subtract value in array2 from corresponding value in array1 (same index #)
-    # iterate with index
-    # subtract array2 element by array1 element
-    # get abs val
-    # push into results array
-  # square all numbers in results array
-    # iterate over nums
-  # add all differences together (#sum)
-  # divide sum by num of elements in array1
-
 def solution(array1, array2)
   results = []
   array1.each_with_index do |num1, index|
