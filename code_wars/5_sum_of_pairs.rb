@@ -3,7 +3,7 @@
 # Sum of Pairs - much harder than it looks bc need to consider index placement of pair.
 
 # Given a list of integers and a single sum value, return the first two values
-# (parse from the left please) in order of appearance that add up to form the sum.
+# (parse from the left please) in **order of appearance** that add up to form the sum.
 
 # sum_pairs([11, 3, 7, 5],         10)
 # #              ^--^      3 + 7 = 10
@@ -29,6 +29,18 @@
 
 # NOTE: There will also be lists tested of lengths upwards of 10,000,000 elements.
 # Be sure your code doesn't time out.
+
+def sum_pairs(array, sum)
+  results = {}
+  array.each_with_index do |num1, index1|
+    array.each_with_index do |num2, index2|
+      next if index1 == index2
+      next if results.value?([num1, num2]) || results.value?([num2, num1])
+      results[index2] = [num1, num2] if num1 + num2 == sum
+    end
+  end
+  results.empty? ? nil : results.min[1]
+end
 
 p sum_pairs([11, 3, 7, 5], 10) == [3, 7]
 p sum_pairs([4, 3, 2, 3, 4], 6) == [4, 2]
