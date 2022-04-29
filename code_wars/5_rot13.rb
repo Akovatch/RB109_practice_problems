@@ -9,41 +9,30 @@
 # they should be returned as they are. Only letters from the latin/english alphabet
 # should be shifted, like in the original Rot13 "implementation".
 
-ALPHA = %w(* a b c d e f g h i j k l m n o p q r s t u v w x y z)
+
+ALPHA = ('a'..'z').to_a
 
 def rot13(string)
   string.chars.map do |char|
-    upcase = false
-    char == char.upcase ? upcase = true : upcase = false
-    char.downcase!
-    if ALPHA.include?(char)
-      idx = ALPHA.index(char) + 13
-      idx -= 26 if idx > 26
-      new_char = ALPHA[idx]
-      upcase == true ? new_char.upcase : new_char
+    index = ALPHA.index(char.downcase)
+    if char =~ /[a-z]/
+      ALPHA.rotate(13)[index]
+    elsif char =~ /[A-Z]/
+      ALPHA.rotate(13)[index].upcase
     else
       char
     end
   end.join
 end
 
-p rot13("grfg") # == "test"
-p rot13("Grfg") # == "Test"
+p rot13("grfg") == "test"
+p rot13("Grfg") == "Test"
 
-# Codewar's solution:
 
-def rot13(string)
-  string.gsub /[a-zA-Z]/ do |s|
-    ascii = s.ord
-    base = if ascii >= 'a'.ord then 'a'.ord else 'A'.ord end
-    ((ascii - base + 13) % 26 + base).chr
-  end
-end
+# Codewars solution:
 
-#or
-
-def rot13(string)
-  alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPGRSTUVWXYZ'
-  rot_alphabet = 'nopqrstuvwxyzabcdefghijklmNOPGRSTUVWXYZABCDEFGHIJKLM'
-  string.tr(alphabet, rot_alphabet)
-end
+# def rot13(string)
+#   alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPGRSTUVWXYZ'
+#   rot_alphabet = 'nopqrstuvwxyzabcdefghijklmNOPGRSTUVWXYZABCDEFGHIJKLM'
+#   string.tr(alphabet, rot_alphabet)
+# end
