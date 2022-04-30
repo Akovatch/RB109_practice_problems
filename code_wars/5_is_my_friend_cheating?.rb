@@ -21,20 +21,6 @@
 # empty array (or an empty string) if no possible numbers are found which will
 # prove that my friend has not told the truth! (Go: in this case return nil).
 
-# input: integer
-# output: arrays of two integers
-# rules:
-  # there can be more than one pair - return all
-  # if no pair exists, return empty array
-  # n is greater than 0, but can be 1
-# algorithm:
-  # init results array
-  # iterate from 1 to n (num1)
-    # iterate from 1 to n (num2)
-      # get sum of all numbers minus num1 and num2
-      # push pair into results array (inside an array) if num1 * num2 == sum
-  # return results
-
 # nested iterations - timed out
 
 def removNb(n)
