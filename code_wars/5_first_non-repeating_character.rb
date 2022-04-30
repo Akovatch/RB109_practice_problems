@@ -1,4 +1,4 @@
-# 5 kyu
+# 5 kyu - pretty easy for a level 5
 
 # Write a function named first_non_repeating_letter that takes a string input,
 # and returns the first character that is not repeated anywhere in the string.
