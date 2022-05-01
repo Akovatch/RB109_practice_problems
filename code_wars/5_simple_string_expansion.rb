@@ -33,10 +33,19 @@
 def solve(string)
   letters = []
   numbers = []
+  results = []
   multiplier = 1
   string.gsub!('(', '')
   string.gsub!(')', '')
   string.chars.each do |element|
+    if element =~ /[0-9]/ && results.last =~ /[0-9]/
+      results.last << element
+    else
+      results << element
+    end
+  end
+  p results
+  results.each do |element|
     if element =~ /[a-z]/ # if its a letter or combo of letters
       letters << element
       numbers << multiplier.to_i
@@ -58,3 +67,5 @@ p solve( "3(ab)" ) == "ababab"
 p solve( "2(a3(b))" ) == "abbbabbb"
 p solve( "3(b(2(c)))" ) == "bccbccbcc"
 p solve( "k(a3(b(a2(c))))" ) == "kabaccbaccbacc"
+
+
