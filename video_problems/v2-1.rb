@@ -13,17 +13,6 @@
 # 111 => -1
 # 531 => -1
 
-# input: positive integer
-# output: the next biggest number using the same digits (or -1)
-# rules:
-  # if not bigger number exists, return negative 1
-# algorithm:
-  # establish max possible number
-    # split num into string digits, sort, reverse, and convert back to integer
-  # iterate from num upto max_number
-    # compare new number with original number - do they have the same max number
-  # if no matches, return -1
-
 def next_bigger_num(num)
   max = num.to_s.chars.sort.reverse.join.to_i
   return -1 if num == max
