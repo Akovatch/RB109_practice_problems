@@ -13,18 +13,6 @@
 
 # All given inputs are lowercase letters a-z.
 
-# input: array of strings (words)
-# output: common prefix (string) or an empty string
-# rules:
-  # all letters are lowercase
-# algorithm:
-  # initialize results array
-  # shift first word out of array, assign to variable 'reference_word'
-  # iterate through chars of reference_word - for each char
-    # push char into results if it char is present at same index in all other words
-    # break if char is not present
-  # if results is empty, return empty string, otherwise, join and return results
-
 def common_prefix(array)
   results = []
   reference_word = array.shift
