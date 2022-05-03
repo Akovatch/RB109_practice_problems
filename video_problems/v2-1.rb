@@ -13,27 +13,25 @@
 # 111 => -1
 # 531 => -1
 
-# input: integer
-# output: integer (next biggest num)
+# input: positive integer
+# output: the next biggest number using the same digits (or -1)
 # rules:
-  # use same digits as og num
-  # return -1 if there is no bigger num
-# Algorithm:
-  # loop up from current num until you hit another one with the same digits
-    # convert num to digits, assign to digits variable
-    # loop
-      # increment up from num until you find another number with the same digits (#digits)
-      # break if num is so large it has a new place added
-        # num.digits.size > digits.size
+  # if not bigger number exists, return negative 1
+# algorithm:
+  # establish max possible number
+    # split num into string digits, sort, reverse, and convert back to integer
+  # iterate from num upto max_number
+    # compare new number with original number - do they have the same max number
+  # if no matches, return -1
 
 def next_bigger_num(num)
-  digits = num.digits.sort
-  next_bigger = num
-  loop do
-    next_bigger += 1
-    return next_bigger if next_bigger.digits.sort == digits
-    return -1 if next_bigger.digits.size > digits.size
+  max = num.to_s.chars.sort.reverse.join.to_i
+  return -1 if num == max
+  ((num + 1)..max).each do |n|
+    return n if n.to_s.chars.sort.reverse.join.to_i == max
+    n += 1
   end
+  -1
 end
 
 p next_bigger_num(9) == -1
@@ -59,10 +57,3 @@ p next_bigger_num(123456789) == 123456798
 #   input.to_s.chars.sort.reverse.join.to_i
 # end
 
-# p next_bigger_num(9) == -1
-# p next_bigger_num(12) == 21
-# p next_bigger_num(513) == 531
-# p next_bigger_num(2017) == 2071
-# p next_bigger_num(111) == -1
-# p next_bigger_num(531) == -1
-# p next_bigger_num(123456789) == 123456798
