@@ -10,16 +10,6 @@
 # Only lower case letters will be used (a-z). No punctuation or digits will
 # be included.
 
-# input: two strings
-# output: boolean
-# rules:
-  # Only lower case letters will be used (a-z).
-  # No punctuation or digits will be included.
-# algorithm:
-  # iterate through chars of string2
-    # return false if the char's count in string1 < count in string 2
-  # return true
-
 def scramble(string1, string2)
   string2.chars.each { |char| return false if string1.count(char) < string2.count(char) }
   true
