@@ -13,20 +13,29 @@
 # 'zzbaabcd' => 4
 # '' => 0
 
-def longest_palindrome(string)
-  palindromes = generate_palindromes(string)
-  palindromes.max_by { |palindrome| palindrome.length }.length
-end
+# input: string (can be empty)
+# output: integer - length of longest palindrome
+# rules:
+  # input can be empty - return 0
+  # all inputs are lowercase apparently
+  # single chars count as palindromes
+# algorithm:
+  # init results array
+  # iterate from 0...string length (index1)
+    # iterate from index1...string length (index2)
+      # get slice
+      # if slice is a palindrome, push to results
+  # get max of results by size
+  # return length of max
 
-def generate_palindromes(string)
+def longest_palindrome(string)
   results = []
   (0...string.length).each do |index1|
     (index1...string.length).each do |index2|
-      slice = string[index1..index2]
-      results << slice if slice.reverse == slice
+      results << string[index1..index2] if string[index1..index2] == string[index1..index2].reverse
     end
   end
-  results
+  results.max_by { |palindrome| palindrome.length }.size
 end
 
 p longest_palindrome('a') == 1
