@@ -19,6 +19,17 @@
 # in this problem). Index - is the place where the left side and right
 # side are equal.
 
+# input: array of integers
+# output: integer representing an index position
+# rules:
+  # [] == 0
+  # If there is no index that would make this happen, return -1.
+# algorithm:
+  # handle empty arrays
+  # iterate over array with index - for each number
+    # return index if the sum of array slice from 0..index (- element) is equal to the sum of array slice from index to -1 (- element)
+  # if no matches, -1
+
 def find_even_index(array)
   return 0 if array.empty?
   array.each_with_index do |num, index|
@@ -35,4 +46,3 @@ p find_even_index([20, 10, -80, 10, 10, 15, 35]) == 0
 p find_even_index([10, -80, 10, 10, 15, 35, 20]) == 6
 p find_even_index([-1, -2, -3, -4, -3, -2, -1]) == 3
 p find_even_index([]) == 0
-
