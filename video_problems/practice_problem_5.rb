@@ -5,6 +5,8 @@
 # string. When counting characters, consider the uppercase and
 # lowercase version to be the same.
 
+# using #min_by:
+
 def least_common_char(string)
   string.downcase.chars.min_by { |char| string.downcase.count(char) }
 end
@@ -15,33 +17,18 @@ p least_common_char("Mississippi") == "m"
 p least_common_char("Happy birthday!") == ' '
 p least_common_char("aaaaaAAAA") == 'a'
 
+# using a variable:
 
+def least_common_char(string)
+  string = string.downcase
+  least_occurring = string[0].downcase
+  string.chars.each do |char|
+    least_occurring = char if string.count(char) < string.count(least_occurring)
+  end
+  least_occurring
+end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# using a hash
 
 def least_common_char(string)
   results = {}
