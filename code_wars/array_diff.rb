@@ -24,8 +24,7 @@ p array_diff([1,2,2], [2]) == [1]
 p array_diff([1,2,2], []) == [1,2,2]
 p array_diff([], [1,2]) == []
 
-# Codewars:
-
-# def array_diff(a, b)
-#   a.reject { |num| b.include?(num) }
-# end
+def array_diff(array1, array2)
+  array2.each { |num| array1.delete(num) if array1.include?(num) }
+  array1
+end
