@@ -8,7 +8,6 @@ Given two arrays a and b write a function comp(a, b) that checks whether the two
 elements, with the same multiplicities. "Same" means, here, that the elements in b are the elements
 in a squared, regardless of the order.
 
-
 Examples
 Valid arrays
 a = [121, 144, 19, 161, 19, 144, 19, 11]
@@ -41,6 +40,21 @@ If a or b are nil (or null or None), the problem doesn't make sense so return fa
 
 =end
 
+# input: two arrays of integers
+# output: boolean
+# rules:
+  # a or b might be [] (all languages except R, Shell).
+  # a or b might be nil
+  # If a or b are nil (or null or None), the problem doesn't make sense so return false.
+  # must have same multiplicities
+# algorithm:
+  # handle nil and [] inputs...return false if...not equal sizes
+  # sort both arrays
+  # iterate through array1 with index - for each number
+    # check if the element at the same index in array2 is equal to that number squared
+    # if not return false
+  # otherwise, return true
+
 def comp(array1, array2)
   return false if [array1, array2].include?(nil)
   array1 = array1.map { |num| num ** 2 }
@@ -52,3 +66,16 @@ p comp([121, 144, 19, 161, 19, 144, 19, 11] , [132, 14641, 20736, 361, 25921, 36
 p comp(nil, [1, 2, 3]) == false
 p comp([1, 2], []) == false
 p comp([1, 2], [1, 4, 4]) == false
+p comp( [1, 2, 3], nil) == false
+
+
+
+
+
+
+
+
+
+
+
+
