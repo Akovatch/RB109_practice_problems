@@ -1,4 +1,4 @@
-# 6 kyu 
+# 6 kyu
 
 # Re-order the characters of a string, so that they are concatenated into a
 # new string in "case-insensitively-alphabetical-order-of-appearance" order.
@@ -9,16 +9,6 @@
 
 # Example:
 # alphabetized("The Holy Bible") # "BbeehHilloTy"
-
-# input: string
-# output: new string in "case-insensitively-alphabetical-order-of-appearance" order
-# rules:
-  # white space and punctuation are removed
-  # input is only letters and punctuation - no digits
-# algorithm:
-  # remove punctuation and whitespace
-    # push into results if it matches regex
-  # sort by value lowercase, tie breaker is index within the original string
 
 def alphabetized(string)
   only_letters = []
