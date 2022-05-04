@@ -24,11 +24,9 @@ def anagram_difference(word1, word2)
     if word2.include?(char)
       common_chars << char
       word2.sub!(char, '')
-    else
-      word2.sub!(char, '')
     end
   end
-  original_total - results.size * 2
+  original_total - common_chars.size * 2
 end
 
 p anagram_difference('', '') == 0
