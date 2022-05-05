@@ -12,10 +12,10 @@ True if it is, False if not. Ignore numbers and punctuation.
 
 =end
 
-ALPHABET = ('a'..'z').to_a
+ALPHA = ('a'..'z').to_a
 
 def pangram?(string)
-  ALPHABET.all? { |letter| string.downcase.include?(letter) }
+  ALPHA.all? { |letter| string.downcase.include?(letter) }
 end
 
 p pangram?("The quick brown fox jumps over the lazy dog.") == true
