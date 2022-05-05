@@ -9,25 +9,11 @@
 # The returned format must be correct in order to complete this challenge.
 # Don't forget the space after the closing parentheses!
 
-def create_phone_number(numbers)
-  first = []
-  second = []
-  third = []
-  numbers.each_with_index do |num, idx|
-    first << num if idx <= 2
-    second << num if idx >= 3 && idx <= 5
-    third << num if idx >= 6
-  end
-  "(#{first.join}) #{second.join}-#{third.join}"
+def create_phone_number(array)
+  "(#{array[0..2].join}) #{array[3..5].join}-#{array[6..10].join}"
 end
 
 p create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) == "(123) 456-7890"
 p create_phone_number([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]) == "(111) 111-1111"
 p create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) == "(123) 456-7890"
 
-# Codewars solution:
-
-def create_phone_number(numbers)
-  n = numbers.join
-  "(#{n[0..2]}) #{n[3..5]}-#{n[6..9]}"
-end
