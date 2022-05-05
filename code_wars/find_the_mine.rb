@@ -16,14 +16,9 @@ and there will only be one mine in the array.
 =end
 
 def mine_location(array)
-  results = []
   array.each_with_index do |sub_array, index|
-    if sub_array.include?(1)
-      results << index
-      results << sub_array.index(1)
-    end
+    return [index, sub_array.index(1)] if sub_array.include?(1)
   end
-  results
 end
 
 p mine_location( [ [1, 0, 0], [0, 0, 0], [0, 0, 0] ] ) == [0, 0]
@@ -32,14 +27,3 @@ p mine_location( [ [0, 0, 0], [0, 0, 0], [0, 1, 0] ] ) == [2, 1]
 p mine_location([ [1, 0], [0, 0] ]) == [0, 0]
 p mine_location([ [1, 0, 0], [0, 0, 0], [0, 0, 0] ]) == [0, 0]
 p mine_location([ [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 1, 0], [0, 0, 0, 0] ]) == [2, 2]
-
-# Codewars solution:
-
-# def mineLocation(field)
-#   row = ''
-#   field.each_with_index do |sub_arr, index|
-#     row = index if sub_arr.include?(1)
-#   end
-#   [row, field[row].index(1)]
-# end
-
