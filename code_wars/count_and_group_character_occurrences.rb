@@ -8,19 +8,20 @@ each character appears in the string as a hash sorted by the highest number of o
 The characters should be sorted alphabetically e.g:
 
 get_char_count("cba") => {1=>["a", "b", "c"]}
+
 You should ignore spaces, special characters and count uppercase letters as lowercase ones.
 =end
 
 def get_char_count(string)
-  chars = ('0'..'9').to_a + ('a'..'z').to_a
   results = {}
-  chars.each do |char|
-    count = string.downcase.count(char)
-    if count > 0
+  count = 0
+  string.downcase.chars.uniq.sort.each do |char|
+    if char =~ /[a-zA-Z0-9]/
+      count = string.downcase.count(char)
       results.key?(count) ? results[count] << char : results[count] = [char]
     end
   end
-  results.sort_by { |key, _| key }.reverse.to_h
+  results
 end
 
 p get_char_count("Mississippi") == {4=>["i", "s"], 2=>["p"], 1=>["m"]}
