@@ -12,7 +12,7 @@
 # "(( @"     =>  "))(("
 
 def duplicate_encode(string)
-  string.downcase.chars.map { |char| string.count(char) == 1 ? '(' : ')' }.join
+  string.downcase.chars.map { |char| string.downcase.count(char) == 1 ? '(' : ')' }.join
 end
 
 p duplicate_encode("din") == "((("
