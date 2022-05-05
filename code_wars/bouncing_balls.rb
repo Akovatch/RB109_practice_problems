@@ -27,22 +27,6 @@ Example:
   (Condition 2) not fulfilled).
 =end
 
-# input: three numbers
-# output: a single integer representing number of times ball passes window
-# rules:
-  # Float parameter "h" in meters must be greater than 0
-  # Float parameter "bounce" must be greater than 0 and less than 1
-  # Float parameter "window" must be less than h.
-  # If all three conditions above are fulfilled, return a positive integer, otherwise return -1.
-# algorithm:
-  # return -1 for invlaid inputs - all three
-  # assign passes variable to 1
-  # start a loop
-    # h is reassigned to results of multiplying h by bounce
-    # if h if greater than window, add 2 to passes variable
-    # if not, break
-  # return passes var
-
 def bouncing_ball(height, bounce, window)
   return -1 if height <= 0 || bounce <= 0 || bounce >= 1 || window >= height
   passes = 1
