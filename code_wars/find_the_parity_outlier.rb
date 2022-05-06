@@ -13,10 +13,49 @@
 # [160, 3, 1719, 19, 11, 13, -21]
 # Should return: 160 (the only even number)
 
+# input: array of integers
+# output: single integer
+# rules:
+  # array will have at least 3 elements
+  # array will have an outlier
+# algorithm:
+  # partition array by odd numbers - parallel assign odd and even variables
+  # return first element of smaller array
+
 def find_outlier(array)
- even, odd = array.partition { |num| num.even? }
- [even, odd].min_by { |array| array.size }.first
+  odd, even = array.partition { |num| num.odd? }
+  odd.size == 1 ? odd.first : even.first
 end
 
 p find_outlier([0, 1, 2]) == 1
 p find_outlier([1, 2, 3]) == 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def find_outlier(array)
+#  even, odd = array.partition { |num| num.even? }
+#  [even, odd].min_by { |array| array.size }.first
+# end
+
