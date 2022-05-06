@@ -10,11 +10,11 @@ solve("1341") = 7. See test cases for more examples.
 
 =end
 
-def solve(str)
+def solve(num)
   results = []
-  0.upto(str.length - 1) do |index1|
-    index1.upto(str.length - 1) do |index2|
-     results << str[index1..index2] if (str[index1..index2]).to_i.odd?
+  (0...num.length).each do |index1|
+    (index1...num.length).each do |index2|
+      results << num[index1..index2] if num[index1..index2].to_i.odd?
     end
   end
   results.size
