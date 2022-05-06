@@ -14,23 +14,6 @@ All letters will be lowercase and all inputs will be valid.
 
 =end
 
-# input: string sentence
-# output: word with the highest score
-# rules:
-  # If two words score the same, return the word that appears earliest in the original string.
-  # All letters will be lowercase
-  # all inputs will be valid.
-
-# algorithm:
-  # init highest variable
-  # iterate through words of the sentence - for each word
-    # init variable score
-    # get its score
-      # iterate over chars of word - for each char
-        # add char's ascii placement # - 96 to score variable
-    # if word's score is higher than score of word in variable, then varaible reassigned to word
-  # return variable
-
 def high(string)
   highest = string.split.first
   string.split.each do |word|
