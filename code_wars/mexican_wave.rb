@@ -28,12 +28,17 @@
 #  Example
 # wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
 
-# def wave(str)
-#   results = []
-#   str.chars.each_with_index do |char, index|
-#     next if char == ' '
-#     results << str[0...index] + char.upcase + str[index + 1 ..-1]
-#   end
-#   results
-# end
+def wave(string)
+  results = []
+  string.chars.each_with_index do |char, index|
+    next if char == ' '
+    results << string[0...index] + char.upcase + string[(index + 1)..-1]
+  end
+  results
+end
 
+p wave("hello") == ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
+p wave("codewars") == ["Codewars", "cOdewars", "coDewars", "codEwars", "codeWars", "codewArs", "codewaRs", "codewarS"]
+p wave("") == []
+p wave("two words") == ["Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS"]
+p wave(" gap ") == [" Gap ", " gAp ", " gaP "]
