@@ -28,18 +28,17 @@ dig_pow(695, 2) should return 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
 dig_pow(46288, 3) should return 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
 =end
 
-
-def dig_pow(n, p)
+def dig_pow(num, power)
   sum = 0
-  digits = n.to_s.chars
-  digits.each_with_index do |digit, index|
-    sum += digit.to_i ** (p + index)
+  num.to_s.chars.each_with_index do |char, index|
+    sum += char.to_i ** (power + index)
   end
-  sum % n == 0 ? sum / n : -1
+  sum % num == 0 ? sum / num : -1
 end
 
 p dig_pow(89, 1) == 1
 p dig_pow(92, 1) == -1
 p dig_pow(46288, 3) == 51
 p dig_pow(695, 2) == 2
+
 
