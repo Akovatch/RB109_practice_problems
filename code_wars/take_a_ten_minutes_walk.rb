@@ -14,27 +14,11 @@
 # of direction letters ('n', 's', 'e', or 'w' only). It will never give you an empty array
 # (that's not a walk, that's standing still!).
 
-def is_valid_walk(walk)
-  return false if walk.size != 10
-  directions = [0, 0]
-  walk.each do |direction|
-    case direction
-      when 'n' then directions[0] += 1
-      when 's' then directions[0] -= 1
-      when 'e' then directions[1] += 1
-      when 'w' then directions[1] -= 1
-    end
-  end
-  directions == [0, 0] ? true : false
+def is_valid_walk(array)
+  array.size == 10 && array.count('n') == array.count('s') && array.count('e') == array.count('w')
 end
 
 p is_valid_walk(['n','s','n','s','n','s','n','s','n','s']) == true
 p is_valid_walk(['w','e','w','e','w','e','w','e','w','e','w','e']) == false
 p is_valid_walk(['w']) == false
 p is_valid_walk(['n','n','n','s','n','s','n','s','n','s']) == false
-
-# Codewars solution:
-
-def isValidWalk(walk)
-  walk.count('n') == walk.count('s') && walk.count('e') == walk.count('w') && walk.count == 10
-end
