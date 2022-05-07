@@ -5,7 +5,7 @@
 
 # Allowed items are defined by array of numbers.
 
-# Pockets contents are defined by map entries where key is a person and value is one or
+# Pockets contents are defined by hash entries where key is a person and value is one or
 # few things represented by an array of numbers (can be nil or empty array if empty), example:
 
 # pockets = {
@@ -13,6 +13,7 @@
 #   tom: [2, 5],
 #   jane: [7]
 # }
+
 # Write method which helps Sherlock to find suspects. If no suspect is found or there are no
 # pockets (pockets == nil), the method should return nil.
 
@@ -24,13 +25,11 @@ pockets = {
   jane: [7]
 }
 
-def find_suspects(pockets, allowed_items)
+def find_suspects(pockets, array)
   suspects = pockets.select do |key, value|
-    value.any? do |num|
-      !allowed_items.include?(num)
-    end
-  end.keys
-  suspects.any? ? suspects : nil
+    value.any? { |num| !array.include?(num) }
+  end
+  suspects.empty? ? nil : suspects.keys
 end
 
 p find_suspects(pockets, [1, 2]) == [:tom, :jane]
