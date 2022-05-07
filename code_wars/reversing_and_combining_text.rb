@@ -1,4 +1,4 @@
-# 6 kyu
+# 6 kyu - time consuming and tricky
 
 =begin
 
@@ -19,7 +19,7 @@ def reverse_and_combine_text(string)
   loop do
     results = []
     words.each_with_index do |word, index|
-      index.even? ? results << word.reverse : results[-1] += word.reverse
+      index.odd? ? results.last << word.reverse : results << word.reverse
     end
     words = results
     break if words.size == 1
