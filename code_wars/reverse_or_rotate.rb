@@ -1,7 +1,7 @@
 
 =begin
 
-6 kyu
+6 kyu - not super hard but quite time consuming due to all that is being asked
 
 Reverse or rotate?
 
@@ -17,21 +17,18 @@ sz is greater (>) than the length of str it is impossible to take a chunk of siz
 
 =end
 
-
-def revrot(str, sz)
-  return "" if sz > str.length || sz <= 0 || str.empty?
-  results = ""
-  str.chars.each_slice(sz) do |slice|
+def revrot(string, sz)
+  return '' if sz <= 0
+  results = []
+  sum = 0
+  string.chars.each_slice(sz) do |slice|
     sum = 0
     break if slice.size < sz
-    slice.each do |char|
-      sum += char.to_i ** 3
-    end
-    sum % 2 == 0 ? results << slice.reverse.join : results << slice.rotate.join
+    sum = slice.map(&:to_i).reduce { |sum, digit| sum += (digit ** 3) }
+    sum % 2 == 0 ? results << slice.reverse : results << slice.rotate
   end
-  results
+  results.empty? ? '' : results.join
 end
-
 
 p revrot("1234", 0) == ""
 p revrot("", 0) == ""
@@ -46,5 +43,52 @@ p revrot("123456779", 8) == "23456771"
 p revrot("", 8) == ""
 p revrot("123456779", 0) == ""
 p revrot("563000655734469485", 4) == "0365065073456944"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def revrot(str, sz)
+#   return "" if sz > str.length || sz <= 0 || str.empty?
+#   results = ""
+#   str.chars.each_slice(sz) do |slice|
+#     sum = 0
+#     break if slice.size < sz
+#     slice.each do |char|
+#       sum += char.to_i ** 3
+#     end
+#     sum % 2 == 0 ? results << slice.reverse.join : results << slice.rotate.join
+#   end
+#   results
+# end
+
 
 
