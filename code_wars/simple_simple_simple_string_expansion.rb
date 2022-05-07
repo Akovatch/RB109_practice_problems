@@ -23,20 +23,15 @@
 
 # string_expansion('') == ''
 
-  def string_expansion(s)
-    results = []
-    multiplier = 1
-    s.chars.each do |char|
-      if char =~ /[0-9]/
-        multiplier = char.to_i
-      else
-        results << char * multiplier
-      end
-    end
-    results.join
+def string_expansion(string)
+  results = ''
+  multiplier = 1
+  string.chars.each do |char|
+    char =~ /[0-9]/ ? multiplier = char.to_i : results << char * multiplier
   end
+  results
+end
 
 p string_expansion('abcde') == 'abcde'
 p string_expansion('3d332f2a') == 'dddffaa'
-p string_expansion('abcde') == 'abcde'
 p string_expansion('') == ''
