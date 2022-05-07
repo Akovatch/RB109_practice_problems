@@ -15,18 +15,13 @@ behave in the same way even if the case of the minor word string is changed.
 
 =end
 
-def title_case(title, minor_words = '')
-  minor_words = minor_words.downcase.split
-  result = title.split.map do |word|
-    if !minor_words.include?(word.downcase)
-      word.capitalize
-    else
-      word.downcase
-    end
+def title_case(string, minor_words = '')
+  return '' if string.empty?
+  title_case = string.downcase.split.map do |word|
+    minor_words.downcase.include?(word) ? word : word.capitalize
   end
-  return '' if result.empty?
-  result[0].capitalize!
-  result.join(' ')
+  title_case.first.capitalize!
+  title_case.join(' ')
 end
 
 p title_case('a clash of KINGS', 'a an the of') == 'A Clash of Kings'
