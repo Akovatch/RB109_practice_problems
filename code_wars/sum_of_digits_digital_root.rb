@@ -36,21 +36,10 @@ digital_root(493193)
 => 2
 =end
 
-# input: integer
-# output: integer
-# rules: natural numbers only
-# algorithm:
-  # begin a loop
-  # convert num to digits (#digits)
-  # add digits together (variable sum)
-  # check if sum has more than one digit
-    # if so, return the sum
-
-
 def digital_root(num)
   loop do
     num = num.digits.sum
-    return num if num.digits.size == 1
+    return num if num < 10
   end
 end
 
