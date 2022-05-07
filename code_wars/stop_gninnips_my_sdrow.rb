@@ -12,7 +12,7 @@
 
 def spin_words(string)
   string.split.map do |word|
-    word.length >= 5 ? word.reverse : word
+    word.size >= 5 ? word.reverse : word
   end.join(' ')
 end
 
