@@ -40,21 +40,6 @@ If a or b are nil (or null or None), the problem doesn't make sense so return fa
 
 =end
 
-# input: two arrays of integers
-# output: boolean
-# rules:
-  # a or b might be [] (all languages except R, Shell).
-  # a or b might be nil
-  # If a or b are nil (or null or None), the problem doesn't make sense so return false.
-  # must have same multiplicities
-# algorithm:
-  # handle nil and [] inputs...return false if...not equal sizes
-  # sort both arrays
-  # iterate through array1 with index - for each number
-    # check if the element at the same index in array2 is equal to that number squared
-    # if not return false
-  # otherwise, return true
-
 def comp(array1, array2)
   return false if [array1, array2].include?(nil)
   array1 = array1.map { |num| num ** 2 }
