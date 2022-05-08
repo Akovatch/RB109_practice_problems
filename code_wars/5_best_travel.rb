@@ -1,4 +1,4 @@
-#5 kyu - not too hard
+#5 kyu 
 
 # John and Mary want to travel between a few towns A, B, C ...
 # Mary has on a sheet of paper a list of distances between these towns.
