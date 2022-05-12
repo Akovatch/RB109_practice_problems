@@ -37,34 +37,68 @@
 # There are some static tests at the beginning and many random tests if you submit your solution.
 
 # input: two strings
-# output: one string
+# output: single string
 # rules:
-  # no bad inputs it says :)
-# algorithm
-  # helper method (will take string and letter as arguments)
-    # iterate over chars of string (#map), switching case for any char that matches the letter argument (#swapcase)
-  # main method:
-    # iterate over chars of string2 - for each char
-      # feed string1 and char into helper method (string1 = method call)
-    # iterate over chars of string1 - for each char
-      # feed string1 and char into helper method (string1 = method call)
-    # join strings
-
-def swapper(string, letter)
-  string.chars.map { |char| char.downcase == letter.downcase ? char.swapcase : char }.join
-end
+   # all inputs will be valid, non-empty strings
+# algorithm:
+  # iterate through string1 (downcased) - for each char
+    # if that char (downcased) is included in string2
+      # iterate through string2, if char2 (downcase) is equal to char (downcase), swap case char2
+  # repeat with inputs swapped
+  # string1 + string2
 
 def work_on_strings(string1, string2)
-  string2.chars.each do |char|
-    string1 = swapper(string1, char)
+  string1.downcase.chars.each do |char|
+      string2 = string2.chars.map { |char2| char2.downcase == char ? char2.swapcase! : char2 }.join
   end
-  string1.chars.each do |char|
-    string2 = swapper(string2, char)
+  string2.downcase.chars.each do |char|
+      string1 = string1.chars.map { |char1| char1.downcase == char ? char1.swapcase! : char1 }.join
   end
   string1 + string2
 end
 
-p work_on_strings("abc","cde") == "abCCde"
-p work_on_strings("abcdeFgtrzw", "defgGgfhjkwqe") == "abcDeFGtrzWDEFGgGFhjkWqE"
-p work_on_strings("abcdeFg", "defgG") == "abcDEfgDEFGg"
-p work_on_strings("abab", "bababa") == "ABABbababa"
+
+  p work_on_strings("abc","cde") == "abCCde"
+  p work_on_strings("abcdeFgtrzw", "defgGgfhjkwqe") == "abcDeFGtrzWDEFGgGFhjkWqE"
+  p work_on_strings("abcdeFg", "defgG") == "abcDEfgDEFGg"
+  p work_on_strings("abab", "bababa") == "ABABbababa"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def swapper(string, letter)
+#   string.chars.map { |char| char.downcase == letter.downcase ? char.swapcase : char }.join
+# end
+
+# def work_on_strings(string1, string2)
+#   string2.chars.each do |char|
+#     string1 = swapper(string1, char)
+#   end
+#   string1.chars.each do |char|
+#     string2 = swapper(string2, char)
+#   end
+#   string1 + string2
+# end
+
