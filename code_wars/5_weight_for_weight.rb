@@ -17,58 +17,22 @@
 # it may happen that the input string have leading, trailing whitespaces and
 # more than a unique whitespace between two consecutive numbers
 
-# input: string of string numbers separated by spaces
-# output: same string by sorted by sum of digits
+# input: string of numbers
+# output: string of numbers sorted by sum of digits (or as strings for ties)\
 # rules:
-  # if two numbers have the same sum, sort by string value
-  # all nums are positive
-  # the list can be empty
+  # input can be empty
+  # all pos inputs
 # algorithm:
   # handle empty string?
-  # split string into an array of string numbers
-  # sort_by sum of digits as integers
-
-  # iterate over results, if two numbers have the same sum, sort them by string value (> comparison, parallel assignment)
+  # split by spaces and sort numbers by sum (tie breaker: sort as strings)
 
 def order_weight(string)
-  # handle empty string?
-  results = [' ']
-  sorted = string.split.sort_by { |str_num| [str_num.chars.map(&:to_i).sum, str_num] }.join(' ')
+  string.split.sort_by { |str_num| [str_num.chars.map(&:to_i).sum, str_num] }.join(' ')
 end
 
-p '90' > '180'
 p order_weight("56 65 74 100 99 68 86 180 90") == "100 180 90 56 65 74 68 86 99"
 p order_weight("103 123 4444 99 2000") == "2000 103 123 4444 99"
 p order_weight("2000 10003 1234000 44444444 9999 11 11 22 123") == "11 11 2000 10003 22 123 1234000 44444444 9999"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # def order_weight(string)
