@@ -1,3 +1,5 @@
+# kyu 5 - great exercise but virtually impossible to do in 25 due to complexity. 30 is more realistic.
+
 # Given a positive number n > 1 find the prime factor decomposition of n.
 # The result will be a string with the following form :
 
