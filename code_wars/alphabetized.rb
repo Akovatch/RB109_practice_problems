@@ -10,63 +10,24 @@
 # Example:
 # alphabetized("The Holy Bible") # "BbeehHilloTy"
 
+ALPHA = ('a'..'z').to_a
+
 def alphabetized(string)
-  only_letters = []
-  string.chars.each { |char| only_letters << char if char =~ /[a-zA-Z]/ }
-  only_letters.sort_by { |char| [char.downcase, string.index(char)] }.join
+  results = []
+  ALPHA.each do |letter|
+    string.chars.each do |char|
+     results << char if char.downcase == letter
+    end
+  end
+  results.join
 end
 
 p alphabetized("The Holy Bible") == "BbeehHilloTy"
 
-# alt solution:
+# using sort_by tie breaker
 
-# ALPHABET = ('a'..'z').to_a
+def alphabetized(string)
+  string.chars.sort_by { |char| [ char.downcase.ord, string.index(char)] }.join.delete(' ')
+end
 
-# def alphabetized(string)
-#   results = []
-#   ALPHABET.each do |letter|
-#     string.chars.each { |char| results << char if char.downcase == letter }
-#   end
-#   results.join
-# end
-
-# p alphabetized("The Holy Bible") == "BbeehHilloTy"
-
-# because we iterate over the alphabet, all chars will be sorted alphabetically
-# by order of appearance in the string.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ALPHA = ('a'..'z').to_a
-
-# def alphabetized(s)
-#   results = []
-#   ALPHA.each do |alpha|
-#     s.chars.each do |char|
-#     results << char if alpha == char.downcase
-#     end
-#   end
-#   results.join
-# end
-
-# p alphabetized("The Holy Bible") == "BbeehHilloTy"
+p alphabetized("The Holy Bible") == "BbeehHilloTy"
