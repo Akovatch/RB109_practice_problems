@@ -21,10 +21,8 @@ def anagram_difference(word1, word2)
   common_chars = []
   original_total = word1.size + word2.size
   word1.chars.each do |char|
-    if word2.include?(char)
-      common_chars << char
+    common_chars << char if word2.include?(char)
       word2.sub!(char, '')
-    end
   end
   original_total - common_chars.size * 2
 end
@@ -38,3 +36,4 @@ p anagram_difference('ab', 'cd') == 4
 p anagram_difference('aab', 'a') == 2
 p anagram_difference('a', 'aab') == 2
 p anagram_difference('codewars', 'hackerrank') == 10
+
