@@ -17,28 +17,14 @@ Examples
 decipherThis('72olle 103doo 100ya'); // 'Hello good day'
 decipherThis('82yade 115te 103o'); // 'Ready set go'
 
-# input: string fo letters and digits
-# output: a string of letters
-# rules:
-  # 2nd and last char switched
-  # 1st char replaced by ascii code
-  # assuming no empty strings
-# algorithm:
-  # iterate over words of sentence - transform each word
-    # partition numbers from letters - paralell assignment to variables numbers and letters
-    # join numbers and convert to letter (#chr)
-    # parallel reassignment of first and last letters
-    # join the result of both operations
-  # join result
-
 =end
 
 def decipher_this(string)
   string.split.map do |word|
-    letters, numbers = word.chars.partition { |char| char =~ /[a-zA-Z]/ }
-    first = numbers.join.to_i.chr
+    numbers, letters = word.chars.partition { |char| char =~ /[0-9]/ }
+    numbers = numbers.join.to_i.chr
     letters[0], letters[-1] = letters[-1], letters[0]
-    first + letters.join
+    numbers + letters.join
   end.join(' ')
 end
 
@@ -49,37 +35,3 @@ p decipher_this("87yh 99na 119e 110to 97ll 98e 108eki 116tah 119esi 111dl 98dri"
 p decipher_this("84kanh 121uo 80roti 102ro 97ll 121ruo 104ple") == "Thank you Piotr for all your help"
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def decipher_this(string)
-#   string.split.map do |word|
-#     numbers, letters = word.chars.partition { |char| char.to_i.to_s == char }
-#     letters[0], letters[-1] = letters[-1], letters[0]
-#     numbers.join.to_i.chr << letters.join
-#   end.join(' ')
-# end
-
-# p decipher_this
