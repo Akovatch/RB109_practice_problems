@@ -17,15 +17,6 @@
 # it may happen that the input string have leading, trailing whitespaces and
 # more than a unique whitespace between two consecutive numbers
 
-# input: string of numbers
-# output: string of numbers sorted by sum of digits (or as strings for ties)\
-# rules:
-  # input can be empty
-  # all pos inputs
-# algorithm:
-  # handle empty string?
-  # split by spaces and sort numbers by sum (tie breaker: sort as strings)
-
 def order_weight(string)
   string.split.sort_by { |str_num| [str_num.chars.map(&:to_i).sum, str_num] }.join(' ')
 end
