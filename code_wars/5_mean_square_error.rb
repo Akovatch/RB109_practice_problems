@@ -17,15 +17,11 @@ Examples:
 =end
 
 def solution(array1, array2)
-  results = []
-  array1.each_with_index do |num1, index|
-    results << (array2[index] - num1).abs
-  end
-  results.map { |num| num ** 2 }.sum.to_f / array1.size
+  array1.each_with_index.map do |num, index|
+    (num - array2[index]).abs ** 2
+  end.sum / array1.size.to_f
 end
 
 p solution([1, 2, 3], [4, 5, 6]) == 9
 p solution([10, 20, 10, 2], [10, 25, 5, -2]) == 16.5
 p solution([-1, 0], [0, -1])  == 1
-
-
