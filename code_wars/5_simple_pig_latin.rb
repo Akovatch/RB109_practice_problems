@@ -3,16 +3,6 @@
 # Move the first letter of each word to the end of it, then add "ay" to the end of the word.
 # Leave punctuation marks untouched.
 
-# input: string
-# output: string in pig latin
-# rules:
-  # assuming no empty or invalid inputs
-# algorithm:
-  # create a constant array of punctutaion marks
-  # iterate over words - transform each word
-  # if its a punc mark, return punc mark
-  # add first char to end of word from 1..-1 + ay
-
 PUNCTUATION = ['.', '?', '!']
 
 def pig_it(string)
