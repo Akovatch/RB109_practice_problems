@@ -23,30 +23,48 @@
 
       # Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
 
+# input: integer
+# output: string
+# rules:
+  # input greater than 1
+# algorithm:
+  # create a prime helper method
+
+  # create a helper method lowest prime
+    # iterate from 2..num / 2 - for each n
+      # return n if num is divisible by n and n is prime
+
+  # main method
+    # create results hash(Hash.new(0))
+    # in a loop:
+      # find lowest prime number that int is divisible by
+      # divide it and reassign num to remainder, push divisor and number of divisions into hash
+      # break when num is prime
+  # return hash data as a string in prescribed format
+
 def prime_factors(num)
-  results = []
-  factors = Hash.new(0)
-  remainder = num
-
+  results = Hash.new(0)
   loop do
+    if is_prime?(num)
+      results[num] += 1
+      break
+    end
     divisor = lowest_prime(num)
-    break if lowest_prime(num) == nil
-    remainder = num / divisor
-    factors[divisor] += 1
-    num = remainder
+    num /= divisor
+    results[divisor] += 1
   end
-
-  factors[remainder] +=1
-  factors.map do |key, value|
-    value == 1 ? "(#{key})" : "(#{key}**#{value})"
-  end.join
+    results.map { |key, value| value == 1 ? "(#{key})" : "(#{key}**#{value})" }.join
 end
 
-def lowest_prime(num) # helper method
-  (2..num / 2).each do |divisor|
-    return divisor if num % divisor == 0
+def is_prime?(num)
+  (2...num).each { |n| return false if num % n == 0 }
+  true
+end
+
+def lowest_prime(num)
+  (2..num / 2).each do |n|
+    return n if num % n == 0 && is_prime?(n)
   end
-  nil
 end
 
 p prime_factors(7775460) == "(2**2)(3**3)(5)(7)(11**2)(17)"
